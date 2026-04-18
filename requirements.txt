@@ -1,8 +1,8 @@
-# VLM Project with Qwen2.5-VL for Video Reasoning
+# VLM Project with Qwen3-VL-2B-Instruct for Video Reasoning
 # Video + Text Query → Chain-of-Thought Reasoning
 
 torch>=2.0.0
-transformers>=4.37.0
+transformers>=4.48.0 
 accelerate>=0.20.0
 decord>=0.6.0
 opencv-python>=4.8.0
@@ -17,7 +17,7 @@ protobuf>=3.20.0
 av>=10.0.0
 # For dataset handling
 datasets>=2.14.0
-# For logging
-wandb>=0.15.0  # optional
-# For API calls (if using OpenAI API)
-openai>=1.0.0  # optional
+# For logging (optional)
+wandb>=0.15.0
+# For API calls (optional)
+openai>=1.0.0

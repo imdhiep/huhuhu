@@ -1,21 +1,20 @@
 # VLM Project Configuration
-# Using Qwen2.5-VL (Qwen3.6) for video reasoning
+# Using Qwen3-VL-2B-Instruct for vision-language tasks
 
 model:
-  # Qwen3.6-35B-A3B - MoE model (35B total, 3B active)
-  # Alternative: Qwen/Qwen3-VL-32B-Instruct (dense)
-  model_name: "Qwen/Qwen3.6-35B-A3B"
+  # Only Qwen3-VL-2B-Instruct is supported
+  model_name: "Qwen/Qwen3-VL-2B-Instruct"
   device: "cuda"  # "cuda" or "cpu"
-  torch_dtype: "bfloat16"  # Qwen3.6 uses BF16
-  use_flash_attention: true
-  max_new_tokens: 32768  # Recommended for Qwen3.6 (32K for general, 81K for complex)
+  torch_dtype: "bfloat16"  # Use bfloat16 for efficiency
+  use_flash_attention: true  # Enable faster inference
+  max_new_tokens: 4096  # Increased for detailed reasoning with timestamps
   temperature: 0.7
-  top_p: 0.8
+  top_p: 0.9
   top_k: 20
-  presence_penalty: 1.5
+  repetition_penalty: 1.5
 
-  # Qwen3.6 specific settings
-  enable_thinking: true  # Enable thinking mode (with <think> tags)
+  # Qwen3 thinking mode settings
+  enable_thinking: true  # Enable chain-of-thought reasoning
   preserve_thinking: false  # Keep reasoning from historical messages
 
 video:
@@ -30,24 +29,60 @@ video:
 prompting:
   # Chain-of-Thought prompting templates
   system_prompt: |
-    You are a visual reasoning assistant. Analyze videos/images step by step.
-    Provide detailed reasoning and then a concise final answer.
+    You are a visual reasoning assistant specialized in detailed video analysis.
+
+    When analyzing videos, you MUST:
+    1.  Provide step-by-step reasoning inside `<think>...</think>` tags.
+    2.  Include specific timestamps (e.g., 01:37 - 01:45) in your reasoning.
+    3.  Describe what you see chronologically, noting actions, objects, people.
+    4.  Be specific: mention clothing, tools, settings, expressions.
+    5.  Include self-correction: verify your observations and refine.
+    6.  After `</think>`, give a concise final answer.
+
+    Example reasoning structure:
+    <think>
+    **Timeframe:** [start - end]
+
+    **Step 1:** [timestamp] - [observation]
+    **Step 2:** [timestamp] - [observation]
+    ...
+    **Verification:** [check accuracy]
+    </think>
+
+    [Final answer here]
 
   question_templates:
-    general: "Describe what is happening in the video."
-    action: "What action is being performed in this video segment?"
-    detailed: "Describe the action in detail, step by step."
-    people: "Describe all people in the video, their actions, and interactions."
-    reasoning: "Think step by step: First, identify the scene. Then, describe each action. Finally, summarize."
+    general: "Describe what is happening in the video, with timestamps."
+    action: "What action is being performed? Provide timestamps for each step."
+    detailed: "Describe the action in detail, step by step, with specific timestamps (e.g., 01:37 - 01:45)."
+    people: "Describe all people in the video, their actions, and interactions, noting timestamps."
+    reasoning: "Think step by step with timestamps: First, identify the scene and timeframe. Then, describe each action with its timestamp. Finally, summarize."
 
-  # CoT instruction
+  # CoT instruction - yêu cầu reasoning chi tiết với timestamps
   cot_instruction: |
-    Let's think step by step:
-    1. Observe the video and identify key elements.
-    2. Describe what is happening chronologically.
-    3. Analyze interactions between people/objects.
-    4. Provide a detailed reasoning process.
-    5. Give a final concise answer.
+    Analyze the video thoroughly and provide a detailed step-by-step reasoning:
+
+    1.  **Identify the timeframe:** Start by noting the video's time range.
+    2.  **Break down actions chronologically:**
+        *   Observe the video from start to end.
+        *   For each significant moment, note the timestamp (e.g., 01:37 - 01:45).
+        *   Describe exactly what is happening at that moment.
+        *   Identify the actors, objects, and their interactions.
+    3.  **Be specific and detailed:**
+        *   Mention what people are wearing, their expressions.
+        *   Note the setting/location.
+        *   Describe tool usage, object manipulations.
+        *   Capture any dialogue or audio cues if evident.
+    4.  **Include self-correction/verification:**
+        *   Double-check your observations.
+        *   Ensure your description covers the entire requested timeframe.
+        *   Refine for accuracy and clarity.
+    5.  **Structure the final output:**
+        *   Provide a clear, chronological narrative.
+        *   Use bullet points or numbered steps if helpful.
+        *   End with a concise summary sentence.
+
+    Present your reasoning inside `<think>...</think>` tags, then give a final answer outside the tags.
 
 data:
   # Input/output paths

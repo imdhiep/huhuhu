@@ -1,5 +1,5 @@
 """
-Main Entry Point: VLM Video Reasoning with Qwen3.6
+Main Entry Point: VLM Video Reasoning with Qwen3-VL-2B-Instruct
 Supports inference, dataset building, and batch processing.
 """
 
@@ -170,7 +170,7 @@ def cmd_batch(args, config):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="VLM Video Reasoning with Qwen3.6",
+        description="VLM Video Reasoning with Qwen3-VL",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

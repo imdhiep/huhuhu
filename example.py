@@ -1,5 +1,5 @@
 """
-Example: Custom Inference with Qwen3.6
+Example: Custom Inference with Qwen3-VL-2B-Instruct
 This script shows how to use the VLM pipeline directly in Python.
 """
 

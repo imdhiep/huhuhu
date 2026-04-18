@@ -1,6 +1,6 @@
 """
 Inference Engine: Run VLM inference on videos with Chain-of-Thought prompting.
-Supports Qwen2.5-VL and Qwen3-VL models.
+Supports Qwen3-VL-2B-Instruct model.
 """
 
 import json
@@ -124,38 +124,50 @@ class InferenceEngine:
     def _parse_response(self, response: str, include_cot: bool) -> Dict:
         """
         Parse model response to extract reasoning steps and final answer.
-        Expected format: reasoning steps followed by final answer.
+        Qwen3-VL outputs: <think>reasoning...</think> followed by final answer.
         """
         result = {
             "full_response": response,
-            "reasoning_steps": [],
+            "reasoning_steps": "",
             "final_answer": ""
         }
 
         if include_cot:
-            # Try to split reasoning and final answer
-            # Common patterns: "Final answer:", "Answer:", "Conclusion:"
-            lines = response.split("\n")
-            reasoning_lines = []
-            final_answer_lines = []
+            # Extract <think>...</think> block
+            import re
+            think_pattern = r'<think>(.*?)</think>'
+            think_match = re.search(think_pattern, response, re.DOTALL | re.IGNORECASE)
 
-            found_final = False
-            for line in lines:
-                line_lower = line.strip().lower()
-                if any(marker in line_lower for marker in ["final answer:", "answer:", "in conclusion", "to summarize", "conclusion:"]):
-                    found_final = True
-                    final_answer_lines.append(line)
-                elif found_final:
-                    final_answer_lines.append(line)
-                else:
-                    reasoning_lines.append(line)
+            if think_match:
+                reasoning_text = think_match.group(1).strip()
+                result["reasoning_steps"] = reasoning_text
 
-            result["reasoning_steps"] = "\n".join(reasoning_lines).strip()
-            result["final_answer"] = "\n".join(final_answer_lines).strip()
+                # Final answer = everything after </think>
+                final_answer = response[think_match.end():].strip()
+                result["final_answer"] = final_answer
+            else:
+                # Fallback: try to split by common markers
+                lines = response.split("\n")
+                reasoning_lines = []
+                final_answer_lines = []
+                found_final = False
 
-            # If no clear split, use entire response as final answer
-            if not result["final_answer"]:
-                result["final_answer"] = response
+                for line in lines:
+                    line_lower = line.strip().lower()
+                    if any(marker in line_lower for marker in ["final answer:", "answer:", "in conclusion", "to summarize", "conclusion:"]):
+                        found_final = True
+                        final_answer_lines.append(line)
+                    elif found_final:
+                        final_answer_lines.append(line)
+                    else:
+                        reasoning_lines.append(line)
+
+                result["reasoning_steps"] = "\n".join(reasoning_lines).strip()
+                result["final_answer"] = "\n".join(final_answer_lines).strip() or response
+
+                # If no clear split, treat whole as reasoning
+                if not result["final_answer"] and not result["reasoning_steps"]:
+                    result["reasoning_steps"] = response
         else:
             result["final_answer"] = response
 

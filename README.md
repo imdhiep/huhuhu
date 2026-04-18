@@ -1,16 +1,16 @@
-# VLM Video Reasoning with Qwen3.6-35B-A3B
+# VLM Video Reasoning with Qwen3-VL-2B-Instruct
 
-Project để xây dựng Vision Language Model với **Qwen3.6-35B-A3B**, hỗ trợ video MP4 và chain-of-thought reasoning giống format ShareGPT4Video.
+Project để xây dựng Vision Language Model với **Qwen3-VL-2B-Instruct**, hỗ trợ video MP4 và chain-of-thought reasoning giống format ShareGPT4Video.
 
 ## 📋 Features
 
-- ✅ **Qwen3.6-35B-A3B** support (MoE: 35B params, 3B active)
+- ✅ **Qwen3-VL-2B-Instruct** support (2B params, efficient)
 - ✅ Video processing từ MP4 (trích xuất frames)
 - ✅ Chain-of-Thought reasoning với `<think>` tags
 - ✅ Dataset builder format ShareGPT4Video
 - ✅ Batch inference
 - ✅ Hỗ trợ thinking mode & preserve_thinking
-- ✅ Dễ mở rộng cho video dài (262K context)
+- ✅ Dễ mở rộng cho video dài (32K context)
 
 ## 🚀 Quick Start
 
@@ -31,16 +31,16 @@ pip install -r requirements.txt
 pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
-### 2. Download Qwen3.6-35B-A3B Model
+### 2. Download Qwen3-VL-2B-Instruct Model
 
-Model sẽ tự động tải khi chạy lần đầu (khoảng 70GB):
+Model sẽ tự động tải khi chạy lần đầu (khoảng 4GB):
 
 ```bash
 # Tạo thư mục cache
 mkdir models/cache
 ```
 
-**Lưu ý:** Cần có GPU với ít nhất **24GB VRAM** cho inference (BF16). Để tiết kiệm, có thể dùng quantization (xũng below).
+**Lưu ý:** Cần có GPU với ít nhất **8GB VRAM** cho inference (BF16).
 
 ### 3. Chuẩn bị Video
 
@@ -161,15 +161,15 @@ Chỉnh sửa `config.yaml`:
 
 ```yaml
 model:
-  model_name: "Qwen/Qwen3.6-35B-A3B"  # Hoặc "Qwen/Qwen3-VL-32B-Instruct"
+  model_name: "Qwen/Qwen3-VL-2B-Instruct"  # Only this model is supported
   device: "cuda"  # "cpu" nếu không có GPU
   torch_dtype: "bfloat16"  # "float16" hoặc "auto"
-  use_flash_attention: true  # Tăng tốc nếu GPU hỗ trợ
+  use_flash_attention: true  # Set false if OOM
 
-  # Qwen3.6 specific
-  max_new_tokens: 32768  # 32K cho general, 81K cho complex
+  # Qwen3-VL settings
+  max_new_tokens: 2048  # Max tokens to generate
   temperature: 0.7
-  top_p: 0.8
+  top_p: 0.9
   top_k: 20
   presence_penalty: 1.5
   enable_thinking: true   # Bật thinking mode (có <think> tags)
@@ -177,7 +177,7 @@ model:
 
 video:
   frame_stride: 10
-  max_frames: 32  # Qwen3.6 xử lý được nhiều frames
+  max_frames: 32  # Qwen3-VL xử lý tốt với 32 frames
   target_fps: 3
   resolution: 384  # Resize về 384x384
   sampling_strategy: "uniform"  # "uniform", "fps", "keyframe"
@@ -189,14 +189,14 @@ prompting:
 
 ### Memory Optimization
 
-Nếu GPU < 24GB, dùng các tricks:
+Nếu GPU < 8GB, dùng các tricks:
 
 ```yaml
 model:
   device: "cuda"
   torch_dtype: "float16"  # Thay bfloat16 → float16 (tiết kiệm 50%)
   use_flash_attention: false  # Tắt nếu OOM
-  max_new_tokens: 16384  # Giảm output length
+  max_new_tokens: 1024  # Giảm output length
 ```
 
 Hoặc dùng ** quantization** (cần thêm code):
@@ -209,11 +209,11 @@ pip install bitsandbytes
 # load_in_4bit=True, bnb_4bit_compute_dtype=torch.float16
 ```
 
-## 🧠 Qwen3.6 Special Features
+## 🧠 Qwen3-VL Special Features
 
 ### Thinking Mode
 
-Qwen3.6 **mặc định bật thinking mode** - model sẽ suy nghĩ trong `<think>...</think>` trước khi trả lời:
+Qwen3-VL **mặc định bật thinking mode** - model sẽ suy nghĩ trong `<think>...</think>` trước khi trả lời:
 
 ```
 <think>
@@ -282,7 +282,7 @@ vlm/
 │   └── meeting.mp4
 ├── src/
 │   ├── video_processor.py   # Trích xuất frames từ video
-│   ├── model_loader.py      # Load Qwen3.6 model
+│   ├── model_loader.py      # Load Qwen3-VL model
 │   ├── inference.py         # Inference engine + CoT
 │   └── dataset_builder.py  # Tạo dataset JSON
 ├── models/cache/            # Model weights (tự động tải)
@@ -346,7 +346,7 @@ Nếu vẫn lỗi, convert video trước:
 ffmpeg -i input.avi -c:v libx264 -preset fast output.mp4
 ```
 
-## 🚀 Advanced: Serve Qwen3.6 với vLLM (Production)
+## 🚀 Advanced: Serve Qwen3-VL với vLLM (Production)
 
 Để throughput cao, dùng vLLM:
 
@@ -354,11 +354,10 @@ ffmpeg -i input.avi -c:v libx264 -preset fast output.mp4
 # Cài vLLM
 pip install vllm
 
-# Serve model (8 GPUs tensor parallel)
-vllm serve Qwen/Qwen3.6-35B-A3B \
+# Serve model
+vllm serve Qwen/Qwen3-VL-2B-Instruct \
     --port 8000 \
-    --tensor-parallel-size 8 \
-    --max-model-len 262144 \
+    --max-model-len 32768 \
     --reasoning-parser qwen3
 
 # Sau đó dùng API:
@@ -366,7 +365,7 @@ python -c "
 from openai import OpenAI
 client = OpenAI(base_url='http://localhost:8000/v1', api_key='EMPTY')
 resp = client.chat.completions.create(
-    model='Qwen/Qwen3.6-35B-A3B',
+    model='Qwen/Qwen3-VL-2B-Instruct',
     messages=[{
         'role': 'user',
         'content': [
@@ -374,7 +373,7 @@ resp = client.chat.completions.create(
             {'type': 'text', 'text': 'Describe the video'}
         ]
     }],
-    max_tokens=32768,
+    max_tokens=2048,
     temperature=0.7,
     extra_body={'top_k': 20, 'mm_processor_kwargs': {'fps': 2}}
 )
@@ -384,14 +383,14 @@ print(resp.choices[0].message.content)
 
 ## 📊 Benchmark & Performance
 
-- **VideoMME:** 86.6% (w/ subs), 82.5% (w/o subs)
-- **MMMU:** 81.7% (SOTA cho open-weight)
-- **RealWorldQA:** 85.3%
-- **Context:** 262K tokens native (lên đến 1M với YaRN)
+**Qwen3-VL-2B-Instruct:**
+- Trained on 32K resolution images with video data
+- Context: 32K tokens
+- Efficient for 8GB GPUs
 
 **Inference speed (approx):**
-- 32 frames @ 384px: ~2-5s/turn trên A100
-- Batch size 1 (video): ~10-30s tùy độ dài reasoning
+- 32 frames @ 384px: ~1-3s/turn trên RTX 3090
+- Batch size 1 (video): ~5-15s tùy độ dài reasoning
 
 ## 🤝 Contributing
 
@@ -405,14 +404,12 @@ print(resp.choices[0].message.content)
 
 ## 📚 References
 
-- [Qwen3.6-35B-A3B HuggingFace](https://huggingface.co/Qwen/Qwen3.6-35B-A3B)
 - [Qwen3-VL Docs](https://huggingface.co/docs/transformers/model_doc/qwen3_vl)
-- [ShareGPT4Video Paper](https://sharegpt4video.github.io/)
-- [vLLM Qwen3 Recipe](https://docs.vllm.ai/en/latest/models/qwen3.html)
+
 
 ## 📄 License
 
-Apache 2.0 (same as Qwen3.6)
+Apache 2.0 (same as Qwen3-VL)
 
 ---
 

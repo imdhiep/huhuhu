@@ -1,6 +1,6 @@
 """
 Dataset Builder: Build VLM dataset in ShareGPT4Video format with reasoning.
-Generates JSON dataset from videos with Qwen3.6 reasoning.
+Generates JSON dataset from videos with Qwen3-VL reasoning.
 """
 
 import json
