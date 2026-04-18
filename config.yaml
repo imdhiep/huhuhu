@@ -1,0 +1,69 @@
+# VLM Project Configuration
+# Using Qwen2.5-VL (Qwen3.6) for video reasoning
+
+model:
+  # Qwen3.6-35B-A3B - MoE model (35B total, 3B active)
+  # Alternative: Qwen/Qwen3-VL-32B-Instruct (dense)
+  model_name: "Qwen/Qwen3.6-35B-A3B"
+  device: "cuda"  # "cuda" or "cpu"
+  torch_dtype: "bfloat16"  # Qwen3.6 uses BF16
+  use_flash_attention: true
+  max_new_tokens: 32768  # Recommended for Qwen3.6 (32K for general, 81K for complex)
+  temperature: 0.7
+  top_p: 0.8
+  top_k: 20
+  presence_penalty: 1.5
+
+  # Qwen3.6 specific settings
+  enable_thinking: true  # Enable thinking mode (with <think> tags)
+  preserve_thinking: false  # Keep reasoning from historical messages
+
+video:
+  # Video processing settings
+  frame_stride: 10  # Extract every Nth frame
+  max_frames: 32  # Maximum frames to process
+  target_fps: 3  # Target FPS for frame extraction
+  resolution: 384  # Resize frames to this size
+  # Frame sampling strategy: "uniform", "fps", or "keyframe"
+  sampling_strategy: "uniform"
+
+prompting:
+  # Chain-of-Thought prompting templates
+  system_prompt: |
+    You are a visual reasoning assistant. Analyze videos/images step by step.
+    Provide detailed reasoning and then a concise final answer.
+
+  question_templates:
+    general: "Describe what is happening in the video."
+    action: "What action is being performed in this video segment?"
+    detailed: "Describe the action in detail, step by step."
+    people: "Describe all people in the video, their actions, and interactions."
+    reasoning: "Think step by step: First, identify the scene. Then, describe each action. Finally, summarize."
+
+  # CoT instruction
+  cot_instruction: |
+    Let's think step by step:
+    1. Observe the video and identify key elements.
+    2. Describe what is happening chronologically.
+    3. Analyze interactions between people/objects.
+    4. Provide a detailed reasoning process.
+    5. Give a final concise answer.
+
+data:
+  # Input/output paths
+  video_folder: "data/"  # Place your .mp4 files here
+  output_json: "outputs/dataset.json"
+  # Dataset format
+  format: "sharegpt4video"  # or "llava", "custom"
+
+dataset_builder:
+  # Settings for building training dataset
+  generate_reasoning: true
+  num_reasoning_turns: 3  # Number of Q&A turns per video
+  include_temporal: true  # Include time stamps
+  include_bbox: false  # Include bounding boxes if available
+
+inference:
+  batch_size: 1
+  save_frames: false  # Save extracted frames for debugging
+  verbose: true

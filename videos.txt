@@ -1,0 +1,5 @@
+# Sample Video List for Batch Processing
+# Put your video paths here (one per line)
+# data/meeting.mp4
+# data/crowd.mp4
+# data/people_talking.mp4
