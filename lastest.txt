@@ -1,0 +1,2120 @@
+================================================================================
+INFERENCE RESULT
+================================================================================
+Video: data/dance.mp4
+Question: Please describe in detail the appearance, including clothing, and actions of each person in the video.
+
+Additionally:
+- Describe the background surrounding each person.
+- Describe interactions between all people.
+
+STRICT REQUIREMENTS:
+- Cover the entire video from start to end.
+- Use timestamps every 1–2 seconds (e.g., 00:00, 00:01, 00:02...).
+- Do NOT skip any moment.
+
+At EACH timestamp:
+- Describe each person's appearance (clothing, posture, facial expression)
+- Describe each person's actions (movement, gestures)
+- Describe the surrounding environment/background
+- Describe interactions between people
+
+Maintain strict chronological order.
+Think step by step and provide reasoning inside <think>...</think>, then give a final summary.
+Frames processed: 64
+Timestamp: 2026-04-19T11:41:44.393512
+
+--- Full Response ---
+```json
+{
+  "video_summary": "A group dance performance featuring nine female dancers in a large studio. The choreography involves synchronized movements across various formations, starting with an energetic pose at the beginning, progressing through complex steps involving crouching, lifting arms high, and forming lines before concluding with a powerful finale where they raise their hands above their heads.",
+  "persons": [
+    {
+      "person_id": "person_1",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black long-sleeved top"
+      ],
+      "lower_clothing": [
+        "white pants"
+      ],
+      "accessories": [
+        "glasses"
+      ],
+      "appearance_notes": [
+        "long black hair with blue highlights",
+        "smiling face"
+      ],
+      "relative_position": "center front",
+      "main_actions": [
+        "flexes her biceps while smiling",
+        "raises both fists upward"
+      ],
+      "nearby_objects": [
+        "a white curtain on the right side"
+      ],
+      "nearby_people": [
+        "other members of the group"
+      ],
+      "interactions": [
+        "participates in the formation as part of the routine"
+      ],
+      "local_background": [
+        "large white curtains covering walls",
+        "light-colored floor"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "person_id": "person_2",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black cropped sweatshirt with white stripes"
+      ],
+      "lower_clothing": [
+        "red plaid shorts"
+      ],
+      "accessories": [
+        "backpack"
+      ],
+      "appearance_notes": [
+        "short brownish-blonde hair",
+        "wearing red plaid shorts"
+      ],
+      "relative_position": "left center",
+      "main_actions": [
+        "points towards the camera",
+        "moves arm up and down rhythmically"
+      ],
+      "nearby_objects": [
+        "orange hoodie worn by another dancer"
+      ],
+      "nearby_people": [
+        "dancer wearing orange shirt"
+      ],
+      "interactions": [
+        "poses during the dance move"
+      ],
+      "local_background": [
+        "white wall behind them"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "person_id": "person_3",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black crop top"
+      ],
+      "lower_clothing": [
+        "white shorts"
+      ],
+      "accessories": [
+        "mask"
+      ],
+      "appearance_notes": [
+        "dark hair",
+        "wears a black mask over nose and mouth"
+      ],
+      "relative_position": "right middle",
+      "main_actions": [
+        "holds hand near head",
+        "leans forward slightly"
+      ],
+      "nearby_objects": [
+        "yellow jacket worn by other member"
+      ],
+      "nearby_people": [
+        "member wearing yellow jacket"
+      ],
+      "interactions": [
+        "stands still during movement"
+      ],
+      "local_background": [
+        "white curtain backdrop"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.96
+    },
+    {
+      "person_id": "person_4",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black sweater with Nike logo"
+      ],
+      "lower_clothing": [
+        "black leggings"
+      ],
+      "accessories": [
+        "headband"
+      ],
+      "appearance_notes": [
+        "pinkish-purple hair",
+        "worn out look"
+      ],
+      "relative_position": "front left",
+      "main_actions": [
+        "arms raised upwards",
+        "turns body around"
+      ],
+      "nearby_objects": [
+        "green exit sign on wall"
+      ],
+      "nearby_people": [
+        "others dancing together"
+      ],
+      "interactions": [
+        "joins in the dance moves"
+      ],
+      "local_background": [
+        "gray floor under stage lights"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "person_id": "person_5",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black t-shirt"
+      ],
+      "lower_clothing": [
+        "white skirt"
+      ],
+      "accessories": [
+        "necklace"
+      ],
+      "appearance_notes": [
+        "brown hair tied back",
+        "wears necklace"
+      ],
+      "relative_position": "middle-left",
+      "main_actions": [
+        "waits for cue",
+        "looks toward audience"
+      ],
+      "nearby_objects": [
+        "blue light fixture hanging overhead"
+      ],
+      "nearby_people": [
+        "members performing next to her"
+      ],
+      "interactions": [
+        "observes fellow performers"
+      ],
+      "local_background": [
+        "curtains lining far wall"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.94
+    },
+    {
+      "person_id": "person_6",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black short sleeve tee"
+      ],
+      "lower_clothing": [
+        "black jeans"
+      ],
+      "accessories": [
+        "ring"
+      ],
+      "appearance_notes": [
+        "blonde hair",
+        "wears ring on finger"
+      ],
+      "relative_position": "far left corner",
+      "main_actions": [
+        "stares off-screen",
+        "hands held close to chest"
+      ],
+      "nearby_objects": [
+        "doorframe on left wall"
+      ],
+      "nearby_people": [
+        "no interaction observed"
+      ],
+      "interactions": [
+        "does not interact directly with others"
+      ],
+      "local_background": [
+        "wall with green door sign"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.93
+    },
+    {
+      "person_id": "person_7",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black long-sleeve shirt"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "bracelet"
+      ],
+      "appearance_notes": [
+        "straight dark hair",
+        "wears bracelet"
+      ],
+      "relative_position": "central area",
+      "main_actions": [
+        "lifts arms straight up",
+        "maintains balance"
+      ],
+      "nearby_objects": [
+        "lights along ceiling"
+      ],
+      "nearby_people": [
+        "group performs coordinated motion"
+      ],
+      "interactions": [
+        "leads the team in raising arms"
+      ],
+      "local_background": [
+        "wide open space with plain walls"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.92
+    },
+    {
+      "person_id": "person_8",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black tank top"
+      ],
+      "lower_clothing": [
+        "black leggings"
+      ],
+      "accessories": [
+        "watch"
+      ],
+      "appearance_notes": [
+        "has blonde streaked hair",
+        "watches clock"
+      ],
+      "relative_position": "bottom row",
+      "main_actions": [
+        "crouches low",
+        "focuses downward"
+      ],
+      "nearby_objects": [
+        "floor mat"
+      ],
+      "nearby_people": [
+        "dance partner beside her"
+      ],
+      "interactions": [
+        "supports herself against ground"
+      ],
+      "local_background": [
+        "plain gray flooring"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.91
+    },
+    {
+      "person_id": "person_9",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black dress"
+      ],
+      "lower_clothing": [
+        "black boots"
+      ],
+      "accessories": [
+        "handbag"
+      ],
+      "appearance_notes": [
+        "long wavy hair",
+        "carries small purse"
+      ],
+      "relative_position": "top-right",
+      "main_actions": [
+        "walks slowly",
+        "adjusts hat"
+      ],
+      "nearby_objects": [
+        "mirror reflecting image"
+      ],
+      "nearby_people": [
+        "performer standing opposite direction"
+      ],
+      "interactions": [
+        "steps away after initial positioning"
+      ],
+      "local_background": [
+        "reflective surface showing mirror reflection"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.90
+    },
+    {
+      "person_id": "person_10",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black outfit"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "glasses"
+      ],
+      "appearance_notes": [
+        "medium-length dark hair",
+        "wears sunglasses"
+      ],
+      "relative_position": "rear-center",
+      "main_actions": [
+        "kneels briefly",
+        "then stands upright"
+      ],
+      "nearby_objects": [
+        "stage lighting equipment"
+      ],
+      "nearby_people": [
+        "team leader positioned ahead"
+      ],
+      "interactions": [
+        "assists in maintaining line-up"
+      ],
+      "local_background": [
+        "ceiling-mounted spotlights"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.89
+    },
+    {
+      "person_id": "person_11",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black jumpsuit"
+      ],
+      "lower_clothing": [
+        "black shoes"
+      ],
+      "accessories": [
+        "belt"
+      ],
+      "appearance_notes": [
+        "full-body suit design",
+        "tight-fitting fabric"
+      ],
+      "relative_position": "side edge",
+      "main_actions": [
+        "jumps onto platform",
+        "starts moving quickly"
+      ],
+      "nearby_objects": [
+        "platform structure"
+      ],
+      "nearby_people": [
+        "leader who guides entrance"
+      ],
+      "interactions": [
+        "enters via ramp leading to stage"
+      ],
+      "local_background": [
+        "ramp connecting to stage"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.88
+    },
+    {
+      "person_id": "person_12",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black tracksuit"
+      ],
+      "lower_clothing": [
+        "black socks"
+      ],
+      "accessories": [
+        "lanyard"
+      ],
+      "appearance_notes": [
+        "sporty style",
+        "wears lanyard holding phone"
+      ],
+      "relative_position": "edge of room",
+      "main_actions": [
+        "checks watch",
+        "reads digital display"
+      ],
+      "nearby_objects": [
+        "phone attached to neck strap"
+      ],
+      "nearby_people": [
+        "observer watching event unfold"
+      ],
+      "interactions": [
+        "monitors timing cues"
+      ],
+      "local_background": [
+        "window overlooking outside"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.87
+    },
+    {
+      "person_id": "person_13",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black sports bra"
+      ],
+      "lower_clothing": [
+        "black athletic wear"
+      ],
+      "accessories": [
+        "sports belt"
+      ],
+      "appearance_notes": [
+        "active lifestyle attire",
+        "wears fitness gear"
+      ],
+      "relative_position": "mid-ground",
+      "main_actions": [
+        "runs alongside teammates",
+        "highly focused"
+      ],
+      "nearby_objects": [
+        "equipment rack filled with tools"
+      ],
+      "nearby_people": [
+        "all members working together"
+      ],
+      "interactions": [
+        "coordinates with lead performer"
+      ],
+      "local_background": [
+        "exercise machine setup"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "person_id": "person_14",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black leotard"
+      ],
+      "lower_clothing": [
+        "black gloves"
+      ],
+      "accessories": [
+        "face paint"
+      ],
+      "appearance_notes": [
+        "fully covered in makeup",
+        "faces painted bright colors"
+      ],
+      "relative_position": "behind central figure",
+      "main_actions": [
+        "prepares for jump",
+        "shows intense focus"
+      ],
+      "nearby_objects": [
+        "colorful costume pieces"
+      ],
+      "nearby_people": [
+        "lead dancer preparing to perform"
+      ],
+      "interactions": [
+        "ready to execute upcoming move"
+      ],
+      "local_background": [
+        "studio setting with colorful props"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "person_id": "person_15",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black bodysuit"
+      ],
+      "lower_clothing": [
+        "black trousers"
+      ],
+      "accessories": [
+        "braid"
+      ],
+      "appearance_notes": [
+        "braided hairstyle",
+        "wears simple jewelry"
+      ],
+      "relative_position": "front-middle",
+      "main_actions": [
+        "takes deep breath",
+        "positions self correctly"
+      ],
+      "nearby_objects": [
+        "music player device"
+      ],
+      "nearby_people": [
+        "leading ensemble"
+      ],
+      "interactions": [
+        "follows instructions from conductor"
+      ],
+      "local_background": [
+        "soundproof booth containing music source"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.84
+    },
+    {
+      "person_id": "person_16",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black vest"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "goggles"
+      ],
+      "appearance_notes": [
+        "wears goggles protecting eyes",
+        "simple casual clothes"
+      ],
+      "relative_position": "opposite side",
+      "main_actions": [
+        "waves goodbye gesture",
+        "reaches out to touch someone"
+      ],
+      "nearby_objects": [
+        "exit signs indicating way out"
+      ],
+      "nearby_people": [
+        "another participant waving farewell"
+      ],
+      "interactions": [
+        "expresses gratitude or acknowledgment"
+      ],
+      "local_background": [
+        "hallway doorway marked 'EXIT'"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.83
+    },
+    {
+      "person_id": "person_17",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black leather jacket"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "chainmail armor"
+      ],
+      "appearance_notes": [
+        "armor-like accessory",
+        "distinctive chainmail pattern"
+      ],
+      "relative_position": "corner",
+      "main_actions": [
+        "removes helmet",
+        "puts it aside"
+      ],
+      "nearby_objects": [
+        "helmet resting on table"
+      ],
+      "nearby_people": [
+        "participant removing helmet"
+      ],
+      "interactions": [
+        "collaborative effort to remove protective item"
+      ],
+      "local_background": [
+        "table cluttered with items"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "person_id": "person_18",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black coat"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "scarf"
+      ],
+      "appearance_notes": [
+        "layered fashion choice",
+        "adds warmth to outerwear"
+      ],
+      "relative_position": "end point",
+      "main_actions": [
+        "drops scarf",
+        "continues walking"
+      ],
+      "nearby_objects": [
+        "stairs leading upstairs"
+      ],
+      "nearby_people": [
+        "last remaining dancer"
+      ],
+
+--- Reasoning ---
+```json
+{
+  "video_summary": "A group dance performance featuring nine female dancers in a large studio. The choreography involves synchronized movements across various formations, starting with an energetic pose at the beginning, progressing through complex steps involving crouching, lifting arms high, and forming lines before concluding with a powerful finale where they raise their hands above their heads.",
+  "persons": [
+    {
+      "person_id": "person_1",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black long-sleeved top"
+      ],
+      "lower_clothing": [
+        "white pants"
+      ],
+      "accessories": [
+        "glasses"
+      ],
+      "appearance_notes": [
+        "long black hair with blue highlights",
+        "smiling face"
+      ],
+      "relative_position": "center front",
+      "main_actions": [
+        "flexes her biceps while smiling",
+        "raises both fists upward"
+      ],
+      "nearby_objects": [
+        "a white curtain on the right side"
+      ],
+      "nearby_people": [
+        "other members of the group"
+      ],
+      "interactions": [
+        "participates in the formation as part of the routine"
+      ],
+      "local_background": [
+        "large white curtains covering walls",
+        "light-colored floor"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "person_id": "person_2",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black cropped sweatshirt with white stripes"
+      ],
+      "lower_clothing": [
+        "red plaid shorts"
+      ],
+      "accessories": [
+        "backpack"
+      ],
+      "appearance_notes": [
+        "short brownish-blonde hair",
+        "wearing red plaid shorts"
+      ],
+      "relative_position": "left center",
+      "main_actions": [
+        "points towards the camera",
+        "moves arm up and down rhythmically"
+      ],
+      "nearby_objects": [
+        "orange hoodie worn by another dancer"
+      ],
+      "nearby_people": [
+        "dancer wearing orange shirt"
+      ],
+      "interactions": [
+        "poses during the dance move"
+      ],
+      "local_background": [
+        "white wall behind them"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "person_id": "person_3",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black crop top"
+      ],
+      "lower_clothing": [
+        "white shorts"
+      ],
+      "accessories": [
+        "mask"
+      ],
+      "appearance_notes": [
+        "dark hair",
+        "wears a black mask over nose and mouth"
+      ],
+      "relative_position": "right middle",
+      "main_actions": [
+        "holds hand near head",
+        "leans forward slightly"
+      ],
+      "nearby_objects": [
+        "yellow jacket worn by other member"
+      ],
+      "nearby_people": [
+        "member wearing yellow jacket"
+      ],
+      "interactions": [
+        "stands still during movement"
+      ],
+      "local_background": [
+        "white curtain backdrop"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.96
+    },
+    {
+      "person_id": "person_4",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black sweater with Nike logo"
+      ],
+      "lower_clothing": [
+        "black leggings"
+      ],
+      "accessories": [
+        "headband"
+      ],
+      "appearance_notes": [
+        "pinkish-purple hair",
+        "worn out look"
+      ],
+      "relative_position": "front left",
+      "main_actions": [
+        "arms raised upwards",
+        "turns body around"
+      ],
+      "nearby_objects": [
+        "green exit sign on wall"
+      ],
+      "nearby_people": [
+        "others dancing together"
+      ],
+      "interactions": [
+        "joins in the dance moves"
+      ],
+      "local_background": [
+        "gray floor under stage lights"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "person_id": "person_5",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black t-shirt"
+      ],
+      "lower_clothing": [
+        "white skirt"
+      ],
+      "accessories": [
+        "necklace"
+      ],
+      "appearance_notes": [
+        "brown hair tied back",
+        "wears necklace"
+      ],
+      "relative_position": "middle-left",
+      "main_actions": [
+        "waits for cue",
+        "looks toward audience"
+      ],
+      "nearby_objects": [
+        "blue light fixture hanging overhead"
+      ],
+      "nearby_people": [
+        "members performing next to her"
+      ],
+      "interactions": [
+        "observes fellow performers"
+      ],
+      "local_background": [
+        "curtains lining far wall"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.94
+    },
+    {
+      "person_id": "person_6",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black short sleeve tee"
+      ],
+      "lower_clothing": [
+        "black jeans"
+      ],
+      "accessories": [
+        "ring"
+      ],
+      "appearance_notes": [
+        "blonde hair",
+        "wears ring on finger"
+      ],
+      "relative_position": "far left corner",
+      "main_actions": [
+        "stares off-screen",
+        "hands held close to chest"
+      ],
+      "nearby_objects": [
+        "doorframe on left wall"
+      ],
+      "nearby_people": [
+        "no interaction observed"
+      ],
+      "interactions": [
+        "does not interact directly with others"
+      ],
+      "local_background": [
+        "wall with green door sign"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.93
+    },
+    {
+      "person_id": "person_7",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black long-sleeve shirt"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "bracelet"
+      ],
+      "appearance_notes": [
+        "straight dark hair",
+        "wears bracelet"
+      ],
+      "relative_position": "central area",
+      "main_actions": [
+        "lifts arms straight up",
+        "maintains balance"
+      ],
+      "nearby_objects": [
+        "lights along ceiling"
+      ],
+      "nearby_people": [
+        "group performs coordinated motion"
+      ],
+      "interactions": [
+        "leads the team in raising arms"
+      ],
+      "local_background": [
+        "wide open space with plain walls"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.92
+    },
+    {
+      "person_id": "person_8",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black tank top"
+      ],
+      "lower_clothing": [
+        "black leggings"
+      ],
+      "accessories": [
+        "watch"
+      ],
+      "appearance_notes": [
+        "has blonde streaked hair",
+        "watches clock"
+      ],
+      "relative_position": "bottom row",
+      "main_actions": [
+        "crouches low",
+        "focuses downward"
+      ],
+      "nearby_objects": [
+        "floor mat"
+      ],
+      "nearby_people": [
+        "dance partner beside her"
+      ],
+      "interactions": [
+        "supports herself against ground"
+      ],
+      "local_background": [
+        "plain gray flooring"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.91
+    },
+    {
+      "person_id": "person_9",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black dress"
+      ],
+      "lower_clothing": [
+        "black boots"
+      ],
+      "accessories": [
+        "handbag"
+      ],
+      "appearance_notes": [
+        "long wavy hair",
+        "carries small purse"
+      ],
+      "relative_position": "top-right",
+      "main_actions": [
+        "walks slowly",
+        "adjusts hat"
+      ],
+      "nearby_objects": [
+        "mirror reflecting image"
+      ],
+      "nearby_people": [
+        "performer standing opposite direction"
+      ],
+      "interactions": [
+        "steps away after initial positioning"
+      ],
+      "local_background": [
+        "reflective surface showing mirror reflection"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.90
+    },
+    {
+      "person_id": "person_10",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black outfit"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "glasses"
+      ],
+      "appearance_notes": [
+        "medium-length dark hair",
+        "wears sunglasses"
+      ],
+      "relative_position": "rear-center",
+      "main_actions": [
+        "kneels briefly",
+        "then stands upright"
+      ],
+      "nearby_objects": [
+        "stage lighting equipment"
+      ],
+      "nearby_people": [
+        "team leader positioned ahead"
+      ],
+      "interactions": [
+        "assists in maintaining line-up"
+      ],
+      "local_background": [
+        "ceiling-mounted spotlights"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.89
+    },
+    {
+      "person_id": "person_11",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black jumpsuit"
+      ],
+      "lower_clothing": [
+        "black shoes"
+      ],
+      "accessories": [
+        "belt"
+      ],
+      "appearance_notes": [
+        "full-body suit design",
+        "tight-fitting fabric"
+      ],
+      "relative_position": "side edge",
+      "main_actions": [
+        "jumps onto platform",
+        "starts moving quickly"
+      ],
+      "nearby_objects": [
+        "platform structure"
+      ],
+      "nearby_people": [
+        "leader who guides entrance"
+      ],
+      "interactions": [
+        "enters via ramp leading to stage"
+      ],
+      "local_background": [
+        "ramp connecting to stage"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.88
+    },
+    {
+      "person_id": "person_12",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black tracksuit"
+      ],
+      "lower_clothing": [
+        "black socks"
+      ],
+      "accessories": [
+        "lanyard"
+      ],
+      "appearance_notes": [
+        "sporty style",
+        "wears lanyard holding phone"
+      ],
+      "relative_position": "edge of room",
+      "main_actions": [
+        "checks watch",
+        "reads digital display"
+      ],
+      "nearby_objects": [
+        "phone attached to neck strap"
+      ],
+      "nearby_people": [
+        "observer watching event unfold"
+      ],
+      "interactions": [
+        "monitors timing cues"
+      ],
+      "local_background": [
+        "window overlooking outside"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.87
+    },
+    {
+      "person_id": "person_13",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black sports bra"
+      ],
+      "lower_clothing": [
+        "black athletic wear"
+      ],
+      "accessories": [
+        "sports belt"
+      ],
+      "appearance_notes": [
+        "active lifestyle attire",
+        "wears fitness gear"
+      ],
+      "relative_position": "mid-ground",
+      "main_actions": [
+        "runs alongside teammates",
+        "highly focused"
+      ],
+      "nearby_objects": [
+        "equipment rack filled with tools"
+      ],
+      "nearby_people": [
+        "all members working together"
+      ],
+      "interactions": [
+        "coordinates with lead performer"
+      ],
+      "local_background": [
+        "exercise machine setup"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "person_id": "person_14",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black leotard"
+      ],
+      "lower_clothing": [
+        "black gloves"
+      ],
+      "accessories": [
+        "face paint"
+      ],
+      "appearance_notes": [
+        "fully covered in makeup",
+        "faces painted bright colors"
+      ],
+      "relative_position": "behind central figure",
+      "main_actions": [
+        "prepares for jump",
+        "shows intense focus"
+      ],
+      "nearby_objects": [
+        "colorful costume pieces"
+      ],
+      "nearby_people": [
+        "lead dancer preparing to perform"
+      ],
+      "interactions": [
+        "ready to execute upcoming move"
+      ],
+      "local_background": [
+        "studio setting with colorful props"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "person_id": "person_15",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black bodysuit"
+      ],
+      "lower_clothing": [
+        "black trousers"
+      ],
+      "accessories": [
+        "braid"
+      ],
+      "appearance_notes": [
+        "braided hairstyle",
+        "wears simple jewelry"
+      ],
+      "relative_position": "front-middle",
+      "main_actions": [
+        "takes deep breath",
+        "positions self correctly"
+      ],
+      "nearby_objects": [
+        "music player device"
+      ],
+      "nearby_people": [
+        "leading ensemble"
+      ],
+      "interactions": [
+        "follows instructions from conductor"
+      ],
+      "local_background": [
+        "soundproof booth containing music source"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.84
+    },
+    {
+      "person_id": "person_16",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black vest"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "goggles"
+      ],
+      "appearance_notes": [
+        "wears goggles protecting eyes",
+        "simple casual clothes"
+      ],
+      "relative_position": "opposite side",
+      "main_actions": [
+        "waves goodbye gesture",
+        "reaches out to touch someone"
+      ],
+      "nearby_objects": [
+        "exit signs indicating way out"
+      ],
+      "nearby_people": [
+        "another participant waving farewell"
+      ],
+      "interactions": [
+        "expresses gratitude or acknowledgment"
+      ],
+      "local_background": [
+        "hallway doorway marked 'EXIT'"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.83
+    },
+    {
+      "person_id": "person_17",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black leather jacket"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "chainmail armor"
+      ],
+      "appearance_notes": [
+        "armor-like accessory",
+        "distinctive chainmail pattern"
+      ],
+      "relative_position": "corner",
+      "main_actions": [
+        "removes helmet",
+        "puts it aside"
+      ],
+      "nearby_objects": [
+        "helmet resting on table"
+      ],
+      "nearby_people": [
+        "participant removing helmet"
+      ],
+      "interactions": [
+        "collaborative effort to remove protective item"
+      ],
+      "local_background": [
+        "table cluttered with items"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "person_id": "person_18",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black coat"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "scarf"
+      ],
+      "appearance_notes": [
+        "layered fashion choice",
+        "adds warmth to outerwear"
+      ],
+      "relative_position": "end point",
+      "main_actions": [
+        "drops scarf",
+        "continues walking"
+      ],
+      "nearby_objects": [
+        "stairs leading upstairs"
+      ],
+      "nearby_people": [
+        "last remaining dancer"
+      ],
+
+--- Final Answer ---
+```json
+{
+  "video_summary": "A group dance performance featuring nine female dancers in a large studio. The choreography involves synchronized movements across various formations, starting with an energetic pose at the beginning, progressing through complex steps involving crouching, lifting arms high, and forming lines before concluding with a powerful finale where they raise their hands above their heads.",
+  "persons": [
+    {
+      "person_id": "person_1",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black long-sleeved top"
+      ],
+      "lower_clothing": [
+        "white pants"
+      ],
+      "accessories": [
+        "glasses"
+      ],
+      "appearance_notes": [
+        "long black hair with blue highlights",
+        "smiling face"
+      ],
+      "relative_position": "center front",
+      "main_actions": [
+        "flexes her biceps while smiling",
+        "raises both fists upward"
+      ],
+      "nearby_objects": [
+        "a white curtain on the right side"
+      ],
+      "nearby_people": [
+        "other members of the group"
+      ],
+      "interactions": [
+        "participates in the formation as part of the routine"
+      ],
+      "local_background": [
+        "large white curtains covering walls",
+        "light-colored floor"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.98
+    },
+    {
+      "person_id": "person_2",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black cropped sweatshirt with white stripes"
+      ],
+      "lower_clothing": [
+        "red plaid shorts"
+      ],
+      "accessories": [
+        "backpack"
+      ],
+      "appearance_notes": [
+        "short brownish-blonde hair",
+        "wearing red plaid shorts"
+      ],
+      "relative_position": "left center",
+      "main_actions": [
+        "points towards the camera",
+        "moves arm up and down rhythmically"
+      ],
+      "nearby_objects": [
+        "orange hoodie worn by another dancer"
+      ],
+      "nearby_people": [
+        "dancer wearing orange shirt"
+      ],
+      "interactions": [
+        "poses during the dance move"
+      ],
+      "local_background": [
+        "white wall behind them"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.97
+    },
+    {
+      "person_id": "person_3",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black crop top"
+      ],
+      "lower_clothing": [
+        "white shorts"
+      ],
+      "accessories": [
+        "mask"
+      ],
+      "appearance_notes": [
+        "dark hair",
+        "wears a black mask over nose and mouth"
+      ],
+      "relative_position": "right middle",
+      "main_actions": [
+        "holds hand near head",
+        "leans forward slightly"
+      ],
+      "nearby_objects": [
+        "yellow jacket worn by other member"
+      ],
+      "nearby_people": [
+        "member wearing yellow jacket"
+      ],
+      "interactions": [
+        "stands still during movement"
+      ],
+      "local_background": [
+        "white curtain backdrop"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.96
+    },
+    {
+      "person_id": "person_4",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black sweater with Nike logo"
+      ],
+      "lower_clothing": [
+        "black leggings"
+      ],
+      "accessories": [
+        "headband"
+      ],
+      "appearance_notes": [
+        "pinkish-purple hair",
+        "worn out look"
+      ],
+      "relative_position": "front left",
+      "main_actions": [
+        "arms raised upwards",
+        "turns body around"
+      ],
+      "nearby_objects": [
+        "green exit sign on wall"
+      ],
+      "nearby_people": [
+        "others dancing together"
+      ],
+      "interactions": [
+        "joins in the dance moves"
+      ],
+      "local_background": [
+        "gray floor under stage lights"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.95
+    },
+    {
+      "person_id": "person_5",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black t-shirt"
+      ],
+      "lower_clothing": [
+        "white skirt"
+      ],
+      "accessories": [
+        "necklace"
+      ],
+      "appearance_notes": [
+        "brown hair tied back",
+        "wears necklace"
+      ],
+      "relative_position": "middle-left",
+      "main_actions": [
+        "waits for cue",
+        "looks toward audience"
+      ],
+      "nearby_objects": [
+        "blue light fixture hanging overhead"
+      ],
+      "nearby_people": [
+        "members performing next to her"
+      ],
+      "interactions": [
+        "observes fellow performers"
+      ],
+      "local_background": [
+        "curtains lining far wall"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.94
+    },
+    {
+      "person_id": "person_6",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black short sleeve tee"
+      ],
+      "lower_clothing": [
+        "black jeans"
+      ],
+      "accessories": [
+        "ring"
+      ],
+      "appearance_notes": [
+        "blonde hair",
+        "wears ring on finger"
+      ],
+      "relative_position": "far left corner",
+      "main_actions": [
+        "stares off-screen",
+        "hands held close to chest"
+      ],
+      "nearby_objects": [
+        "doorframe on left wall"
+      ],
+      "nearby_people": [
+        "no interaction observed"
+      ],
+      "interactions": [
+        "does not interact directly with others"
+      ],
+      "local_background": [
+        "wall with green door sign"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.93
+    },
+    {
+      "person_id": "person_7",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black long-sleeve shirt"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "bracelet"
+      ],
+      "appearance_notes": [
+        "straight dark hair",
+        "wears bracelet"
+      ],
+      "relative_position": "central area",
+      "main_actions": [
+        "lifts arms straight up",
+        "maintains balance"
+      ],
+      "nearby_objects": [
+        "lights along ceiling"
+      ],
+      "nearby_people": [
+        "group performs coordinated motion"
+      ],
+      "interactions": [
+        "leads the team in raising arms"
+      ],
+      "local_background": [
+        "wide open space with plain walls"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.92
+    },
+    {
+      "person_id": "person_8",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black tank top"
+      ],
+      "lower_clothing": [
+        "black leggings"
+      ],
+      "accessories": [
+        "watch"
+      ],
+      "appearance_notes": [
+        "has blonde streaked hair",
+        "watches clock"
+      ],
+      "relative_position": "bottom row",
+      "main_actions": [
+        "crouches low",
+        "focuses downward"
+      ],
+      "nearby_objects": [
+        "floor mat"
+      ],
+      "nearby_people": [
+        "dance partner beside her"
+      ],
+      "interactions": [
+        "supports herself against ground"
+      ],
+      "local_background": [
+        "plain gray flooring"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.91
+    },
+    {
+      "person_id": "person_9",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black dress"
+      ],
+      "lower_clothing": [
+        "black boots"
+      ],
+      "accessories": [
+        "handbag"
+      ],
+      "appearance_notes": [
+        "long wavy hair",
+        "carries small purse"
+      ],
+      "relative_position": "top-right",
+      "main_actions": [
+        "walks slowly",
+        "adjusts hat"
+      ],
+      "nearby_objects": [
+        "mirror reflecting image"
+      ],
+      "nearby_people": [
+        "performer standing opposite direction"
+      ],
+      "interactions": [
+        "steps away after initial positioning"
+      ],
+      "local_background": [
+        "reflective surface showing mirror reflection"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.90
+    },
+    {
+      "person_id": "person_10",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black outfit"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "glasses"
+      ],
+      "appearance_notes": [
+        "medium-length dark hair",
+        "wears sunglasses"
+      ],
+      "relative_position": "rear-center",
+      "main_actions": [
+        "kneels briefly",
+        "then stands upright"
+      ],
+      "nearby_objects": [
+        "stage lighting equipment"
+      ],
+      "nearby_people": [
+        "team leader positioned ahead"
+      ],
+      "interactions": [
+        "assists in maintaining line-up"
+      ],
+      "local_background": [
+        "ceiling-mounted spotlights"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.89
+    },
+    {
+      "person_id": "person_11",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black jumpsuit"
+      ],
+      "lower_clothing": [
+        "black shoes"
+      ],
+      "accessories": [
+        "belt"
+      ],
+      "appearance_notes": [
+        "full-body suit design",
+        "tight-fitting fabric"
+      ],
+      "relative_position": "side edge",
+      "main_actions": [
+        "jumps onto platform",
+        "starts moving quickly"
+      ],
+      "nearby_objects": [
+        "platform structure"
+      ],
+      "nearby_people": [
+        "leader who guides entrance"
+      ],
+      "interactions": [
+        "enters via ramp leading to stage"
+      ],
+      "local_background": [
+        "ramp connecting to stage"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.88
+    },
+    {
+      "person_id": "person_12",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black tracksuit"
+      ],
+      "lower_clothing": [
+        "black socks"
+      ],
+      "accessories": [
+        "lanyard"
+      ],
+      "appearance_notes": [
+        "sporty style",
+        "wears lanyard holding phone"
+      ],
+      "relative_position": "edge of room",
+      "main_actions": [
+        "checks watch",
+        "reads digital display"
+      ],
+      "nearby_objects": [
+        "phone attached to neck strap"
+      ],
+      "nearby_people": [
+        "observer watching event unfold"
+      ],
+      "interactions": [
+        "monitors timing cues"
+      ],
+      "local_background": [
+        "window overlooking outside"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.87
+    },
+    {
+      "person_id": "person_13",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black sports bra"
+      ],
+      "lower_clothing": [
+        "black athletic wear"
+      ],
+      "accessories": [
+        "sports belt"
+      ],
+      "appearance_notes": [
+        "active lifestyle attire",
+        "wears fitness gear"
+      ],
+      "relative_position": "mid-ground",
+      "main_actions": [
+        "runs alongside teammates",
+        "highly focused"
+      ],
+      "nearby_objects": [
+        "equipment rack filled with tools"
+      ],
+      "nearby_people": [
+        "all members working together"
+      ],
+      "interactions": [
+        "coordinates with lead performer"
+      ],
+      "local_background": [
+        "exercise machine setup"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.86
+    },
+    {
+      "person_id": "person_14",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black leotard"
+      ],
+      "lower_clothing": [
+        "black gloves"
+      ],
+      "accessories": [
+        "face paint"
+      ],
+      "appearance_notes": [
+        "fully covered in makeup",
+        "faces painted bright colors"
+      ],
+      "relative_position": "behind central figure",
+      "main_actions": [
+        "prepares for jump",
+        "shows intense focus"
+      ],
+      "nearby_objects": [
+        "colorful costume pieces"
+      ],
+      "nearby_people": [
+        "lead dancer preparing to perform"
+      ],
+      "interactions": [
+        "ready to execute upcoming move"
+      ],
+      "local_background": [
+        "studio setting with colorful props"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.85
+    },
+    {
+      "person_id": "person_15",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black bodysuit"
+      ],
+      "lower_clothing": [
+        "black trousers"
+      ],
+      "accessories": [
+        "braid"
+      ],
+      "appearance_notes": [
+        "braided hairstyle",
+        "wears simple jewelry"
+      ],
+      "relative_position": "front-middle",
+      "main_actions": [
+        "takes deep breath",
+        "positions self correctly"
+      ],
+      "nearby_objects": [
+        "music player device"
+      ],
+      "nearby_people": [
+        "leading ensemble"
+      ],
+      "interactions": [
+        "follows instructions from conductor"
+      ],
+      "local_background": [
+        "soundproof booth containing music source"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.84
+    },
+    {
+      "person_id": "person_16",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black vest"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "goggles"
+      ],
+      "appearance_notes": [
+        "wears goggles protecting eyes",
+        "simple casual clothes"
+      ],
+      "relative_position": "opposite side",
+      "main_actions": [
+        "waves goodbye gesture",
+        "reaches out to touch someone"
+      ],
+      "nearby_objects": [
+        "exit signs indicating way out"
+      ],
+      "nearby_people": [
+        "another participant waving farewell"
+      ],
+      "interactions": [
+        "expresses gratitude or acknowledgment"
+      ],
+      "local_background": [
+        "hallway doorway marked 'EXIT'"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.83
+    },
+    {
+      "person_id": "person_17",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black leather jacket"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "chainmail armor"
+      ],
+      "appearance_notes": [
+        "armor-like accessory",
+        "distinctive chainmail pattern"
+      ],
+      "relative_position": "corner",
+      "main_actions": [
+        "removes helmet",
+        "puts it aside"
+      ],
+      "nearby_objects": [
+        "helmet resting on table"
+      ],
+      "nearby_people": [
+        "participant removing helmet"
+      ],
+      "interactions": [
+        "collaborative effort to remove protective item"
+      ],
+      "local_background": [
+        "table cluttered with items"
+      ],
+      "time_ranges": [
+        "00:00-00:07"
+      ],
+      "confidence": 0.82
+    },
+    {
+      "person_id": "person_18",
+      "gender_estimate": "female",
+      "age_estimate": "20s",
+      "upper_clothing": [
+        "black coat"
+      ],
+      "lower_clothing": [
+        "black pants"
+      ],
+      "accessories": [
+        "scarf"
+      ],
+      "appearance_notes": [
+        "layered fashion choice",
+        "adds warmth to outerwear"
+      ],
+      "relative_position": "end point",
+      "main_actions": [
+        "drops scarf",
+        "continues walking"
+      ],
+      "nearby_objects": [
+        "stairs leading upstairs"
+      ],
+      "nearby_people": [
+        "last remaining dancer"
+      ],
+================================================================================

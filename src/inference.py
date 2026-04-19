@@ -68,11 +68,16 @@ class InferenceEngine:
 
         # Step 4: Generate response
         logger.info("Running model inference...")
+        model_cfg = self.config.get("model", {})
         response = self.model_loader.generate(
             messages=messages,
-            max_new_tokens=self.config["model"]["max_new_tokens"],
-            temperature=self.config["model"]["temperature"],
-            top_p=self.config["model"]["top_p"]
+            max_new_tokens=model_cfg.get("max_new_tokens", 1024),
+            temperature=model_cfg.get("temperature", 0.7),
+            top_p=model_cfg.get("top_p", 0.9),
+            top_k=model_cfg.get("top_k", 20),
+            repetition_penalty=model_cfg.get("repetition_penalty", 1.2),
+            enable_thinking=model_cfg.get("enable_thinking", include_cot),
+            preserve_thinking=model_cfg.get("preserve_thinking", False)
         )
 
         # Step 5: Parse response
@@ -101,6 +106,16 @@ class InferenceEngine:
 
         # Build content with images
         content = []
+
+        # Add temporal hint first so the model treats all frames as one sequence.
+        content.append({
+            "type": "text",
+            "text": (
+                f"You are given {len(images)} frames sampled uniformly from one video, "
+                "ordered from start to end. Use the full sequence, not just the first frame. "
+                "Summarize in coarse time segments and avoid inventing extra people when unclear."
+            )
+        })
 
         # Add all frames as images
         for img in images:

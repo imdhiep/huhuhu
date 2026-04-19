@@ -1,104 +1,132 @@
 # VLM Project Configuration
-# Using Qwen3-VL-2B-Instruct for vision-language tasks
+# Balanced temporal reasoning for T4 (avoid over-long, first-frame-heavy outputs)
 
 model:
-  # Only Qwen3-VL-2B-Instruct is supported
   model_name: "Qwen/Qwen3-VL-2B-Instruct"
-  device: "cuda"  # "cuda" or "cpu"
-  torch_dtype: "bfloat16"  # Use bfloat16 for efficiency
-  use_flash_attention: true  # Enable faster inference
-  max_new_tokens: 4096  # Increased for detailed reasoning with timestamps
-  temperature: 0.7
-  top_p: 0.9
-  top_k: 20
-  repetition_penalty: 1.5
+  device: "cuda"
+  torch_dtype: "float16"
+  use_flash_attention: true
 
-  # Qwen3 thinking mode settings
-  enable_thinking: true  # Enable chain-of-thought reasoning
-  preserve_thinking: false  # Keep reasoning from historical messages
+  # Generation settings (balanced detail and latency)
+  max_new_tokens: 4096
+  temperature: 0.1
+  top_p: 0.8
+  top_k: 10
+  repetition_penalty: 1.2
+
+  # Keep output concise/stable on T4
+  enable_thinking: false
+  preserve_thinking: false
 
 video:
-  # Video processing settings
-  frame_stride: 10  # Extract every Nth frame
-  max_frames: 32  # Maximum frames to process
-  target_fps: 3  # Target FPS for frame extraction
-  resolution: 384  # Resize frames to this size
-  # Frame sampling strategy: "uniform", "fps", or "keyframe"
+  # Temporal sampling tuned for summary-level understanding
+  frame_stride: 2
+  max_frames: 64
+  target_fps: 4
+  resolution: 320
+
+  # Sampling strategy
   sampling_strategy: "uniform"
 
 prompting:
-  # Chain-of-Thought prompting templates
   system_prompt: |
-    You are a visual reasoning assistant specialized in detailed video analysis.
+    You are a surveillance video analysis system.
 
-    When analyzing videos, you MUST:
-    1.  Provide step-by-step reasoning inside `<think>...</think>` tags.
-    2.  Include specific timestamps (e.g., 01:37 - 01:45) in your reasoning.
-    3.  Describe what you see chronologically, noting actions, objects, people.
-    4.  Be specific: mention clothing, tools, settings, expressions.
-    5.  Include self-correction: verify your observations and refine.
-    6.  After `</think>`, give a concise final answer.
+    Task:
+    Observe the entire video and extract person-level information for each individual appearing in the video.
 
-    Example reasoning structure:
-    <think>
-    **Timeframe:** [start - end]
+    Requirements:
+    1. Identify each person appearing in the video and assign a temporary ID: person_1, person_2, person_3, ...
+    2. For each person, describe clearly:
+       - estimated gender if observable
+       - estimated age if observable
+       - upper clothing
+       - lower clothing
+       - accessories (hat, backpack, bag, mask, glasses, etc.)
+       - distinctive appearance notes
+       - relative position in the frame
+       - main actions
+       - nearby context
+       - nearby people or objects
+       - interactions with others if any
+    3. If a person appears multiple times in the same video, keep the same ID whenever possible.
+    4. Do not provide only a generic whole-video description. Separate output by person.
+    5. If uncertain, write "không rõ" instead of guessing.
 
-    **Step 1:** [timestamp] - [observation]
-    **Step 2:** [timestamp] - [observation]
-    ...
-    **Verification:** [check accuracy]
-    </think>
+    Output must be valid JSON only, following this schema exactly:
 
-    [Final answer here]
+    {
+      "video_summary": "brief full-video summary",
+      "persons": [
+        {
+          "person_id": "person_1",
+          "gender_estimate": "",
+          "age_estimate": "",
+          "upper_clothing": [],
+          "lower_clothing": [],
+          "accessories": [],
+          "appearance_notes": [],
+          "relative_position": "",
+          "main_actions": [],
+          "nearby_objects": [],
+          "nearby_people": [],
+          "interactions": [],
+          "local_background": [],
+          "time_ranges": [],
+          "confidence": 0.0
+        }
+      ]
+    }
 
   question_templates:
-    general: "Describe what is happening in the video, with timestamps."
-    action: "What action is being performed? Provide timestamps for each step."
-    detailed: "Describe the action in detail, step by step, with specific timestamps (e.g., 01:37 - 01:45)."
-    people: "Describe all people in the video, their actions, and interactions, noting timestamps."
-    reasoning: "Think step by step with timestamps: First, identify the scene and timeframe. Then, describe each action with its timestamp. Finally, summarize."
+    general: |
+      Describe the video from start to end using 10-20 second segments.
+      Focus on main actions and transitions.
 
-  # CoT instruction - yêu cầu reasoning chi tiết với timestamps
+    action: |
+      Describe the key actions step-by-step by segment.
+      Prioritize major motion changes over micro-details.
+
+    detailed: |
+      Describe the video in detail by segment (10-20 seconds each):
+      - Main scene and action
+      - Clearly visible people only
+      - Important interaction changes
+
+    people: |
+      Track clearly visible people across the video.
+
+      Requirements:
+      - Use segment-level timestamps (10-20s).
+      - Keep person IDs consistent and limited.
+      - If uncertain, mark as unclear.
+
+    reasoning: |
+      Reason chronologically by segment.
+      First identify duration, then summarize each segment.
+      Verify that start, middle, and end are all covered.
+
   cot_instruction: |
-    Analyze the video thoroughly and provide a detailed step-by-step reasoning:
+     Analyze the full video chronologically using segment-level reasoning:
 
-    1.  **Identify the timeframe:** Start by noting the video's time range.
-    2.  **Break down actions chronologically:**
-        *   Observe the video from start to end.
-        *   For each significant moment, note the timestamp (e.g., 01:37 - 01:45).
-        *   Describe exactly what is happening at that moment.
-        *   Identify the actors, objects, and their interactions.
-    3.  **Be specific and detailed:**
-        *   Mention what people are wearing, their expressions.
-        *   Note the setting/location.
-        *   Describe tool usage, object manipulations.
-        *   Capture any dialogue or audio cues if evident.
-    4.  **Include self-correction/verification:**
-        *   Double-check your observations.
-        *   Ensure your description covers the entire requested timeframe.
-        *   Refine for accuracy and clarity.
-    5.  **Structure the final output:**
-        *   Provide a clear, chronological narrative.
-        *   Use bullet points or numbered steps if helpful.
-        *   End with a concise summary sentence.
-
-    Present your reasoning inside `<think>...</think>` tags, then give a final answer outside the tags.
+     1. Identify total duration.
+     2. Split into coarse segments (10-20 seconds).
+     3. For each segment, report key action and clearly visible people.
+     4. Do not invent identities; mark uncertainty explicitly.
+     5. End with a concise overall summary.
 
 data:
-  # Input/output paths
-  video_folder: "data/"  # Place your .mp4 files here
+  video_folder: "data/"
   output_json: "outputs/dataset.json"
-  # Dataset format
-  format: "sharegpt4video"  # or "llava", "custom"
+  format: "sharegpt4video"
 
 dataset_builder:
-  # Settings for building training dataset
   generate_reasoning: true
-  num_reasoning_turns: 3  # Number of Q&A turns per video
-  include_temporal: true  # Include time stamps
-  include_bbox: false  # Include bounding boxes if available
+  num_reasoning_turns: 3
+  include_temporal: true
+  include_bbox: false
 
 inference:
   batch_size: 1
-  save_frames: false  # Save extracted frames for debugging
+  save_frames: false
   verbose: true

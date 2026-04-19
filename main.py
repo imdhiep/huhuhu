@@ -79,6 +79,25 @@ def cmd_inference(args, config):
     print(result["final_answer"])
     print("="*80)
 
+    # Always save full inference output to lastest.txt
+    latest_output_path = Path("lastest.txt")
+    with open(latest_output_path, "w", encoding="utf-8") as f:
+        f.write("=" * 80 + "\n")
+        f.write("INFERENCE RESULT\n")
+        f.write("=" * 80 + "\n")
+        f.write(f"Video: {result['video_path']}\n")
+        f.write(f"Question: {result['question']}\n")
+        f.write(f"Frames processed: {result['num_frames']}\n")
+        f.write(f"Timestamp: {result.get('timestamp', '')}\n")
+        f.write("\n--- Full Response ---\n")
+        f.write(result.get("full_response", "N/A") + "\n")
+        f.write("\n--- Reasoning ---\n")
+        f.write(result.get("reasoning_steps", "N/A") + "\n")
+        f.write("\n--- Final Answer ---\n")
+        f.write(result.get("final_answer", "") + "\n")
+        f.write("=" * 80 + "\n")
+    logger.info(f"Full output saved to {latest_output_path}")
+
     # Save to JSON if requested
     if args.output:
         output_path = Path(args.output)

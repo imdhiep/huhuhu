@@ -154,15 +154,22 @@ class ModelLoader:
             return_tensors="pt"
         ).to(self.device)
 
+        # Use deterministic decoding for very low temperature to avoid runaway lists.
+        do_sample = temperature is not None and temperature > 0.2
+
         # Generation kwargs (Qwen3-VL compatible)
         gen_kwargs = {
             "max_new_tokens": max_new_tokens,
-            "temperature": temperature,
-            "top_p": top_p,
-            "do_sample": True,
-            "top_k": top_k,
             "repetition_penalty": repetition_penalty,
+            "do_sample": do_sample,
         }
+
+        if do_sample:
+            gen_kwargs.update({
+                "temperature": temperature,
+                "top_p": top_p,
+                "top_k": top_k,
+            })
         gen_kwargs.update(kwargs)
 
         # Generate
